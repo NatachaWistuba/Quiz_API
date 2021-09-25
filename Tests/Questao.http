@@ -1,0 +1,26 @@
+### Cadastrar Questao
+POST https://localhost:5001/api/questao/create
+Content-Type:  application/json
+
+{
+    "Nquestao" : "2",
+    "Pergunta"  : "que?",
+    "Resposta"  : "sei lá!"
+}
+
+### listar todos
+GET https://localhost:5001/api/questao/list
+
+###Deletar um Questao
+DELETE  https://localhost:5001/api/questao/delete/1
+
+###Alterar Questao
+PUT  https://localhost:5001/api/questao/update
+Content-Type: application/json
+
+{
+    "Id" : 2,
+    "Nquestao" : ".1",
+    "Pergunta" : "editado",
+    "Resposta" : "trocado"
+}
