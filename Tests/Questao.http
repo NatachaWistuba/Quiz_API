@@ -3,9 +3,11 @@ POST https://localhost:5001/api/questao/create
 Content-Type:  application/json
 
 {
-    "Nquestao" : "2",
+    "Nquestao" : "2.",
     "Pergunta"  : "que?",
-    "Resposta"  : "sei lá!"
+    "Resposta"  : "asddd",
+    "Ponto"       : 1
+
 }
 
 ### listar todos

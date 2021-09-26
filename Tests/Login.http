@@ -1,0 +1,2 @@
+### buscar por email+senha
+Get https://localhost:5001/api/login/getbylogin/teste@gmail+123
