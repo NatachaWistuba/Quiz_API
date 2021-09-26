@@ -31,13 +31,13 @@ namespace API.Controllers
          }
 
 
-         //--------------------------Lista Jogadores---------------------------
+         //--------------------------Listar Questões---------------------------
         [HttpGet]// GET: api/questao/list
         [Route("list")]
         public IActionResult List ( ) =>  Ok(_context.Questoes.ToList( ));
 
 
-        //--------------------------Deletar Questao--------------------------
+        //--------------------------Deletar Questões--------------------------
         [HttpDelete] //DELETE: /api/questao/delete/bolinho
         [Route("delete/{numero}")]
         public IActionResult Delete([FromRoute] string numero)

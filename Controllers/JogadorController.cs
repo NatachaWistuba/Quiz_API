@@ -28,7 +28,7 @@ namespace API.Controllers
             return Created(" ", jogador);
         }
 
-        //--------------------------Lista Jogadores---------------------------
+        //--------------------------Lista Jogadores  :  Ranking (validar maior ponto)---------------------------
          // GET: api/jogador/list
         [HttpGet] //Se não colocar nd ele é Get por padrão
         [Route("list")]
@@ -43,7 +43,7 @@ namespace API.Controllers
             Jogador jogador = _context.Jogadores.Find(id);
             if (jogador == null)
             {
-                return NotFound( );
+                return NotFound("e-mail nao cadastrado!!!");
             }
             return Ok(jogador);
         }
