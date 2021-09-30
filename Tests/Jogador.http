@@ -1,11 +1,12 @@
-###
+### Cadastrar Jogador
+//Não pode cadastrar E-mail repetido
 POST https://localhost:5001/api/jogador/create
 Content-Type:  application/json
 
 {
-    "Nome" : "pedro",
-    "Senha" : "123",
-    "Email" : "teste@gmail"
+    "Nome" : "joao",
+    "Senha" : "1234",
+    "Email" : "joao@gmail"
 }
 
 ### listar todos
@@ -14,15 +15,15 @@ GET https://localhost:5001/api/jogador/list
 ### buscar por id
 Get https://localhost:5001/api/jogador/getbyid/1
 
-###Deletar um jogador
-DELETE  https://localhost:5001/api/jogador/delete/pedro
+###Deletar um jogador pelo email
+DELETE  https://localhost:5001/api/jogador/delete/joao@gmail
 
 ###Alterar um jogador
 PUT  https://localhost:5001/api/jogador/update
 Content-Type: application/json
 
 {
-    "Id" : 2,
+    "Id" : 1,
     "Nome" : "Bolinho alterado",
     "Senha" : "123",
     "Email" : "test@gmail"

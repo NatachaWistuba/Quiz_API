@@ -3,24 +3,33 @@ POST https://localhost:5001/api/questao/create
 Content-Type:  application/json
 
 {
-    "Nquestao" : "2",
+    "Nquestao" : "2.",
     "Pergunta"  : "que?",
-    "Resposta"  : "sei lá!"
+    "RespostaC"  : "certa",
+    "RespostaF1" : "errada1",
+    "RespostaF2" : "errada2",
+    "RespostaF3" : "errada3",
+    "Ponto"       : 2
+
 }
 
 ### listar todos
 GET https://localhost:5001/api/questao/list
 
-###Deletar um Questao
-DELETE  https://localhost:5001/api/questao/delete/1
+###Deletar um Questao peloNúmero da questão (nQuestão)
+DELETE  https://localhost:5001/api/questao/delete/1.
 
-###Alterar Questao
-PUT  https://localhost:5001/api/questao/update
+###Alterar Questao {id}
+PUT  https://localhost:5001/api/questao/update/
 Content-Type: application/json
 
 {
     "Id" : 2,
-    "Nquestao" : ".1",
+    "Nquestao" : ".11",
     "Pergunta" : "editado",
-    "Resposta" : "trocado"
+    "RespostaC"  : "certa",
+    "RespostaF1" : "errada11",
+    "RespostaF2" : "errada22",
+    "RespostaF3" : "errada33",
+    "Ponto"       : 2
 }

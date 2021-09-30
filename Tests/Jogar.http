@@ -1,0 +1,18 @@
+### Buscar por Resposta da pergunta, https://localhost:5001/api/jogar/getbyresposta/id/resposta
+//Observação: Se não tiver pergunta cadastrada estora exceção !!!
+Get https://localhost:5001/api/jogar/getbyresposta/1/certa
+
+### Buscar pergunta por ID
+Get https://localhost:5001/api/jogar/questao/1
+
+
+
+
+<!--  TESTE
+###Alterar a pontuação do jogador, https://localhost:5001/api/jogar/updateJogadorPT/{idJogar}/{idJogador}
+PUT  https://localhost:5001/api/jogar/updateJogadorPT/1/1
+Content-Type: application/json
+{
+    "pontuacao": 5
+}
+-->

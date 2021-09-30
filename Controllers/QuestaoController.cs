@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
 {
+
     [ApiController]
     [Route("api/Questao")]
     public class QuestaoController : ControllerBase
@@ -31,14 +32,14 @@ namespace API.Controllers
          }
 
 
-         //--------------------------Lista Jogadores---------------------------
+         //--------------------------Listar Questões---------------------------
         [HttpGet]// GET: api/questao/list
         [Route("list")]
         public IActionResult List ( ) =>  Ok(_context.Questoes.ToList( ));
 
 
-        //--------------------------Deletar Questao--------------------------
-        [HttpDelete] //DELETE: /api/questao/delete/bolinho
+        //--------------------------Deletar Questões--------------------------
+        [HttpDelete] //DELETE: /api/questao/delete/nQuestão
         [Route("delete/{numero}")]
         public IActionResult Delete([FromRoute] string numero)
         {
@@ -65,6 +66,8 @@ namespace API.Controllers
             _context.SaveChanges();
             return Ok(questao);
         }
+
+
 
     }
 }
