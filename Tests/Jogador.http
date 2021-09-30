@@ -1,3 +1,4 @@
+
 ### Cadastrar Jogador
 //Não pode cadastrar E-mail repetido
 POST https://localhost:5001/api/jogador/create
@@ -27,4 +28,5 @@ Content-Type: application/json
     "Nome" : "Bolinho alterado",
     "Senha" : "123",
     "Email" : "test@gmail"
-}
+
+

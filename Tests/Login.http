@@ -1,2 +1,4 @@
+
 ### buscar por email+senha, só confirma a busca caso o jogador estejam cadastrados
 Get https://localhost:5001/api/login/getbylogin/joao@gmail+1234
+

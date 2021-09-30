@@ -1,3 +1,4 @@
+
 using System;
 
 namespace API.Models
@@ -9,4 +10,5 @@ namespace API.Models
         public string Senha { get; set; }
 
     }
+
 }

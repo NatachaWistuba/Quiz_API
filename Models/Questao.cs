@@ -1,3 +1,4 @@
+
 using System;
 
 namespace API.Models
@@ -20,4 +21,5 @@ namespace API.Models
           public override string ToString( ) =>
         $"Pergunta: {Pergunta} | Criado em: {CriadoEm}" ;
     }
+
 }
