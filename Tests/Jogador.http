@@ -24,9 +24,9 @@ PUT  https://localhost:5001/api/jogador/update
 Content-Type: application/json
 
 {
-    "Id" : 1,
+    "Id" : 2,
     "Nome" : "Bolinho alterado",
-    "Senha" : "123",
-    "Email" : "test@gmail"
-
+    "Senha" : "1234",
+    "Email" : "joao@gmail"
+}
 

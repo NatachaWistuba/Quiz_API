@@ -18,7 +18,7 @@ Content-Type:  application/json
 GET https://localhost:5001/api/questao/list
 
 ###Deletar um Questao peloNúmero da questão (nQuestão)
-DELETE  https://localhost:5001/api/questao/delete/1.
+DELETE  https://localhost:5001/api/questao/delete/2.
 
 ###Alterar Questao {id}
 PUT  https://localhost:5001/api/questao/update/
@@ -33,3 +33,4 @@ Content-Type: application/json
     "RespostaF2" : "errada22",
     "RespostaF3" : "errada33",
     "Ponto"       : 2
+}

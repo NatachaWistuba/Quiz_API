@@ -22,7 +22,7 @@ namespace API.Controllers
          //Validação de resposta recebida pelo jogador, Se resposta == questao.respostaC, do (Id) recebido.
         [HttpGet] //Get: api/jogar/getbyresposta/resposta?
         [Route("getbyresposta/{id}/{resposta}")]
-       public IActionResult GetById([FromRoute] string resposta, int id, int idJogador)
+       public IActionResult GetById([FromRoute] string resposta, int id)
       {
           Questao questao =_context.Questoes.ToList( )[id - 1];
           //Jogador jogador = _context.Jogadores.ToList( )[id - 1];
