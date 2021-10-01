@@ -4,13 +4,14 @@ POST https://localhost:5001/api/questao/create
 Content-Type:  application/json
 
 {
-    "Nquestao" : "2.",
-    "Pergunta"  : "que?",
+    "Nquestao"    : "2.",
+    "Pergunta"     : "que?",
     "RespostaC"  : "certa",
     "RespostaF1" : "errada1",
     "RespostaF2" : "errada2",
     "RespostaF3" : "errada3",
-    "Ponto"       : 2
+    "Ponto"           : 2,
+    "jogadorId"     : 1
 
 }
 
@@ -32,5 +33,6 @@ Content-Type: application/json
     "RespostaF1" : "errada11",
     "RespostaF2" : "errada22",
     "RespostaF3" : "errada33",
-    "Ponto"       : 2
+    "Ponto"       : 10,
+    "jogadorId": 1
 }

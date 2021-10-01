@@ -68,6 +68,20 @@ namespace API.Controllers
             return Ok(questao);
         }
 
+      //-----------------Buscar Questao por ID--------------------
+      [HttpGet]
+      [Route("getbyid/{id}")]
+      public IActionResult GetById ([FromRoute] int id)
+      {
+        Questao questao = _context.Questoes.Find(id);
+        if (questao == null)
+        {
+          return NotFound();
+        }
+
+        return Ok(questao);
+      }
+
 
 
     }

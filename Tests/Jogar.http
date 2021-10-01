@@ -1,4 +1,4 @@
-### Buscar por Resposta da pergunta, https://localhost:5001/api/jogar/getbyresposta/id/resposta
+### Buscar por Resposta da pergunta, https://localhost:5001/api/jogar/getbyresposta/id/resposta/idJogador
 //Observação: Se não tiver pergunta cadastrada estora exceção !!!
 Get https://localhost:5001/api/jogar/getbyresposta/1/certa
 
