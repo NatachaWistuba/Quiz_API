@@ -1,3 +1,4 @@
+
 using API.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -11,7 +12,8 @@ namespace API.Data
         //Lista de propriedades que vão virar tabelas no banco
         public DbSet<Jogador> Jogadores { get ; set; }
         public DbSet<Questao> Questoes  { get ; set; }
-
+        public DbSet<Jogar>     Jogadas     { get; set; }
+        public DbSet<Login>     Connected     { get; set; }
 
     }
 }

@@ -1,3 +1,4 @@
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
 {
+
     [ApiController]
     [Route("api/Questao")]
     public class QuestaoController : ControllerBase
@@ -38,7 +40,7 @@ namespace API.Controllers
 
 
         //--------------------------Deletar Questões--------------------------
-        [HttpDelete] //DELETE: /api/questao/delete/bolinho
+        [HttpDelete] //DELETE: /api/questao/delete/nQuestão
         [Route("delete/{numero}")]
         public IActionResult Delete([FromRoute] string numero)
         {
@@ -65,6 +67,22 @@ namespace API.Controllers
             _context.SaveChanges();
             return Ok(questao);
         }
+
+      //-----------------Buscar Questao por ID--------------------
+      [HttpGet]
+      [Route("getbyid/{id}")]
+      public IActionResult GetById ([FromRoute] int id)
+      {
+        Questao questao = _context.Questoes.Find(id);
+        if (questao == null)
+        {
+          return NotFound();
+        }
+
+        return Ok(questao);
+      }
+
+
 
     }
 }
