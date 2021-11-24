@@ -17,7 +17,7 @@ namespace API.Models
           public string        RespostaF3 { get; set; }
           //public string[]    RespostaF  { get; set; } = new string[3]; Não deu boa
           public int              Ponto         { get; set; }
-          public int              JogadorId   { get; set;}
+          //public int              JogadorId   { get; set;}
           public DateTime   CriadoEm { get; set; }
 
           public override string ToString( ) =>

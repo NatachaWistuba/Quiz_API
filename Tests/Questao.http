@@ -5,13 +5,12 @@ Content-Type:  application/json
 
 {
     "Nquestao"    : "2.",
-    "Pergunta"     : "que?",
-    "RespostaC"  : "certa",
-    "RespostaF1" : "errada1",
-    "RespostaF2" : "errada2",
-    "RespostaF3" : "errada3",
-    "Ponto"           : 2,
-    "jogadorId"     : 1
+    "Pergunta"     : "Qual a resposta correta?                                                 A-                                                                                          B-                                                                                          C-                                                                                        D-",
+    "RespostaC"  : "A",
+    "RespostaF1" : "B",
+    "RespostaF2" : "C",
+    "RespostaF3" : "D",
+    "Ponto"           : 1
 
 }
 
