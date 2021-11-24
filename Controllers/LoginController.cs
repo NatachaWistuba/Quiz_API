@@ -4,6 +4,7 @@ using System.Linq;
 using API.Data;
 using API.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers
 {
@@ -11,9 +12,9 @@ namespace API.Controllers
     [Route("api/login")]
     public class LoginController : ControllerBase
     {
-          //------------------------------------Banco De Dados--------------------------------------
+        //------------------------------------Banco De Dados--------------------------------------
         private readonly DataContext _context; //para outro método poder receber o ( DataContext context) / readonly apenas para leitura
-        public LoginController( DataContext context)
+        public LoginController( DataContext context )
         {
             _context = context;
         }
@@ -21,7 +22,7 @@ namespace API.Controllers
         // validar login e senha fazendo uma busca na lista de jogadore
         //Se login e senha confirmar PROSSEGUIR
 
-    //-------------------------Buscar e Validação do Jogador por e-mail e senha--------------------
+        //-------------------------Buscar e Validação do Jogador por e-mail e senha--------------------
         [HttpGet]  //Get: api/jogador/getbyid/e-mail+senha
         [Route("getbylogin/{email}+{senha}")]
         public IActionResult GetById([FromRoute] string email, string senha)
@@ -34,6 +35,7 @@ namespace API.Controllers
            //Aqui retornar uma liberação (ainda não sei como vou fazer isso!!! F);
            return Ok("Cadastrado: "+jogador);
         }
+
         //---------------------------Cadastrar um login-----------------------
         [HttpPost]// POST: api/login/Create
         [Route("create")]
@@ -75,4 +77,3 @@ namespace API.Controllers
         }
     }
 }
-    

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ### Cadastrar resposta
 POST https://localhost:5001/api/jogar/Create
 Content-Type:  application/json
@@ -12,6 +13,8 @@ GET https://localhost:5001/api/jogar/list
 
 
 
+=======
+>>>>>>> 258e70255b3aec1096d4ba12a470a12ff9c34feb
 ### Buscar por Resposta da pergunta, https://localhost:5001/api/jogar/getbyresposta/id/resposta/idJogador
 //Observação: Se não tiver pergunta cadastrada estora exceção !!!
 Get https://localhost:5001/api/jogar/getbyresposta/1/certa
@@ -20,6 +23,11 @@ Get https://localhost:5001/api/jogar/getbyresposta/1/certa
 Get https://localhost:5001/api/jogar/questao/1
 
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 258e70255b3aec1096d4ba12a470a12ff9c34feb
 <!--  TESTE
 ###Alterar a pontuação do jogador, https://localhost:5001/api/jogar/updateJogadorPT/{idJogar}/{idJogador}
 PUT  https://localhost:5001/api/jogar/updateJogadorPT/1/1
