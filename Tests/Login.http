@@ -7,8 +7,8 @@ POST https://localhost:5001/api/login/create
 Content-Type:  application/json
 
 {
-    "Email" : "joao@gmail",
-    "Senha" : "1234"
+    "Email" : "jow@gmail.com",
+    "Senha" : "123"
 }
 
 ### listar todos

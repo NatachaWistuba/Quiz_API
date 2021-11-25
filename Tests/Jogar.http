@@ -1,4 +1,4 @@
-### Cadastrar resposta (OBS: a  "QuestaoId": deve ser um Id de uma questão existente )
+### Cadastrar resposta
 POST https://localhost:5001/api/jogar/Create
 Content-Type:  application/json
 
