@@ -2,3 +2,17 @@
 ### buscar por email+senha, só confirma a busca caso o jogador estejam cadastrados
 Get https://localhost:5001/api/login/getbylogin/joao@gmail+1234
 
+### cadastrar login
+POST https://localhost:5001/api/login/create
+Content-Type:  application/json
+
+{
+    "Email" : "joao@gmail",
+    "Senha" : "1234"
+}
+
+### listar todos
+GET https://localhost:5001/api/login/list
+
+###Deletar login (Sair deleta apenas id 1)
+DELETE  https://localhost:5001/api/login/delete

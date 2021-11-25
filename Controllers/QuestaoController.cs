@@ -40,13 +40,13 @@ namespace API.Controllers
 
 
         //--------------------------Deletar Questões--------------------------
-        [HttpDelete] //DELETE: /api/questao/delete/nQuestão
-        [Route("delete/{numero}")]
-        public IActionResult Delete([FromRoute] string numero)
+        [HttpDelete] //DELETE: /api/questao/delete/id
+        [Route("delete/{id}")]
+        public IActionResult Delete([FromRoute] int id)
         {
             //Buscar um objeto na tabela de questao com base no nome
             Questao questao = _context.Questoes.FirstOrDefault(
-                questao => questao.Nquestao == numero  //procurando cliente pelo nome na lista, irá trazer o que achar primeiro
+                questao => questao.Id == id  //procurando cliente pelo nome na lista, irá trazer o que achar primeiro
             );
             if (questao == null)
             {
@@ -83,6 +83,12 @@ namespace API.Controllers
       }
 
 
+        //--------Buscar Pergunta por ID ( para mandar apenas 1 pergunta por vez para o FRONT )----------
+        [HttpGet]// GET: api/getbyid/questao
+        [Route("getbyid/{id}")]
+        public IActionResult List ([FromRoute] int id) {
+            return  Ok(_context.Questoes.ToList( )[id - 1]);
+        }
 
     }
 }
