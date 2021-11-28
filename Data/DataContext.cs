@@ -15,6 +15,7 @@ namespace API.Data
         public DbSet<Questao> Questoes  { get ; set; }
         public DbSet<Jogar>     Jogadas     { get; set; }
         public DbSet<Login>     Connected     { get; set; }
+         public DbSet<Categoria>    Categorias     { get; set; }
 
     }
 }

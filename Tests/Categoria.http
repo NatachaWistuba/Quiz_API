@@ -1,0 +1,13 @@
+### Cadastrar Categoria
+POST https://localhost:5001/api/categoria/create
+Content-Type:  application/json
+
+{
+    "nome" : "filme"
+}
+
+### listar todos
+GET https://localhost:5001/api/categoria/list
+
+###Deletar uma categoria pelo Id
+DELETE  https://localhost:5001/api/categoria/delete/2

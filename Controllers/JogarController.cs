@@ -27,11 +27,12 @@ namespace API.Controllers
       {
           Questao questao =_context.Questoes.ToList( )[id - 1];
           //Jogador jogador = _context.Jogadores.ToList( )[id - 1];
-          if(questao.RespostaC != resposta )
+          if(questao.RespostaCerta != resposta )
           {
               return NotFound("Resposta incorreta!!!");
           }
-            return Ok("Resposta Correta: "+questao.RespostaC);
+
+            return Ok("Resposta Correta: "+questao.RespostaCerta);
        }
        //falta relacionar com jogador para receber os pontos !!!
 
@@ -42,7 +43,7 @@ namespace API.Controllers
         public IActionResult Create ([FromBody] Jogar jogar)
         {
             Questao questaoEncontrado = _context.Questoes.FirstOrDefault( questao => questao.Id == jogar.QuestaoId );
-            if ( questaoEncontrado.RespostaC == jogar.Resposta ){
+            if ( questaoEncontrado.RespostaCerta == jogar.Resposta ){
                 jogar.Questao = _context.Questoes.Find(jogar.QuestaoId);
                  _context.Jogadas.Add( jogar );
                  _context.SaveChanges( ); //salva todas as mudanças que foram feitas
@@ -90,9 +91,10 @@ namespace API.Controllers
 
 
 
-        /*
+
         //---------------------Método que caso a resposta seja a correta, jogador.pontuação == Ponto
         //recebendo id do jogar, id do jogador,
+        /*
         [HttpPut] //PUT: api/jogar/updateJogadorPT
         [Route("updateJogadorPT/{id}/{idJogador}")]
         public IActionResult UpdatePT([FromBody]  int idJogador, int id)
@@ -106,8 +108,8 @@ namespace API.Controllers
             _context.Jogadores.Update(jogador);
             _context.SaveChanges( );
             return Ok(jogador);
-        }
-        */
+        }*/
+
 
     }
 }

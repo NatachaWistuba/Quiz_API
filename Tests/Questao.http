@@ -4,13 +4,14 @@ POST https://localhost:5001/api/questao/create
 Content-Type:  application/json
 
 {
-    "Nquestao"    : "2.",
-    "Pergunta"     : "Qual a resposta correta?                                                 A-                                                                                          B-                                                                                          C-                                                                                               D-",
-    "RespostaC"  : "A",
-    "RespostaF1" : "B",
-    "RespostaF2" : "C",
-    "RespostaF3" : "D",
-    "Ponto"           : 1
+    "Pergunta"     : "Qual a resposta correta?                                           A- certa.  B-errada  C-errada  D-errada",
+    "RespostaCerta"  : "A",
+    "Resposta1" : "B",
+    "Resposta2" : "C",
+    "Resposta3" : "A",
+    "Resposta4" : "D",
+    "Ponto"        : 1,
+    "categoriaId" : 1
 
 }
 
@@ -26,12 +27,12 @@ Content-Type: application/json
 
 {
     "Id" : 2,
-    "Nquestao" : ".11",
     "Pergunta" : "editado",
-    "RespostaC"  : "certa",
-    "RespostaF1" : "errada11",
-    "RespostaF2" : "errada22",
-    "RespostaF3" : "errada33",
+    "RespostaCerta"  : "certa",
+    "Resposta1" : "errada11",
+    "Resposta2" : "errada22",
+    "Resposta3" : "errada33",
+    "Resposta4" : "errada33",
     "Ponto"       : 10,
     "jogadorId": 1
 }

@@ -5,6 +5,7 @@ using System.Linq;
 using API.Data;
 using API.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers
 {
@@ -26,6 +27,12 @@ namespace API.Controllers
          [Route("create")]
          public IActionResult Create ([FromBody] Questao questao)
          {
+             Categoria categoriaEncontrada = _context.Categorias.FirstOrDefault(categoria => questao.CategoriaId == categoria.Id);
+             if(categoriaEncontrada == null){
+                 return NotFound("Categoria não existe!!!");
+             }
+             questao.CategoriaId = categoriaEncontrada.Id;
+             questao.Categoria = _context.Categorias.Find(questao.CategoriaId);
              _context.Questoes.Add(questao);
              _context.SaveChanges( );
 
@@ -36,7 +43,9 @@ namespace API.Controllers
          //--------------------------Listar Questões---------------------------
         [HttpGet]// GET: api/questao/list
         [Route("list")]
-        public IActionResult List ( ) =>  Ok(_context.Questoes.ToList( ));
+        public IActionResult List ( ) =>  Ok(_context.Questoes
+        .Include( c => c.Categoria)
+        .ToList( ));
 
 
         //--------------------------Deletar Questões--------------------------
