@@ -40,7 +40,11 @@ namespace API
             );
 
             //Configurar todas as injeções de dependencias do seu projeto
+            /* (UTILIZANDO AZURE)
             services.AddDbContext<DataContext>(
+                options => options.UseSqlServer( Configuration.GetConnectionString("Azure") )//aqui vai a string de conecxão do nosso DB
+            );*/
+             services.AddDbContext<DataContext>(
                 options => options.UseInMemoryDatabase("database") //aqui vai a string de conecxão do nosso DB, como vamos ultilizar a memória apenas simulamos "database"
             );
 

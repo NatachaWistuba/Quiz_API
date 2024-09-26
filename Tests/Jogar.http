@@ -14,10 +14,13 @@ GET https://localhost:5001/api/jogar/list
 
 ### Buscar por Resposta da pergunta, https://localhost:5001/api/jogar/getbyresposta/id/resposta/idJogador
 //Observação: Se não tiver pergunta cadastrada estora exceção !!!
-Get https://localhost:5001/api/jogar/getbyresposta/1/certa
+Get https://localhost:5001/api/jogar/getbyresposta/1/A
 
 ### Buscar pergunta por ID
-Get https://localhost:5001/api/jogar/questao/1
+Get https://localhost:5001/api/jogar/getbyid/1
+
+###Deletar uma jogada pelo email
+DELETE  https://localhost:5001/api/jogar/delete/4
 
 
 <!--  TESTE

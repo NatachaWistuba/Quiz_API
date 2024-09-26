@@ -7,10 +7,10 @@ namespace API.Models
         public int           Id              { get; set; }
         public string     Resposta    { get; set; }
         //public int          ponto          { get; set; }
-         public int          QuestaoId  { get; set;}
+        public int          QuestaoId  { get; set;}
         public Questao Questao     { get; set; }
-        public int          LoginId       { get; set; }
-        public Login     Login        { get; set; }
+    //    public int          LoginId       { get; set; }
+    //    public Login     Login        { get; set; }
     }
 }
 

@@ -27,11 +27,12 @@ namespace API.Controllers
       {
           Questao questao =_context.Questoes.ToList( )[id - 1];
           //Jogador jogador = _context.Jogadores.ToList( )[id - 1];
-          if(questao.RespostaC != resposta )
+          if(questao.RespostaCerta != resposta )
           {
               return NotFound("Resposta incorreta!!!");
           }
-            return Ok("Resposta Correta: "+questao.RespostaC);
+
+            return Ok("Resposta Correta: "+questao.RespostaCerta);
        }
        //falta relacionar com jogador para receber os pontos !!!
 
@@ -42,7 +43,7 @@ namespace API.Controllers
         public IActionResult Create ([FromBody] Jogar jogar)
         {
             Questao questaoEncontrado = _context.Questoes.FirstOrDefault( questao => questao.Id == jogar.QuestaoId );
-            if ( questaoEncontrado.RespostaC == jogar.Resposta ){
+            if ( questaoEncontrado.RespostaCerta == jogar.Resposta ){
                 jogar.Questao = _context.Questoes.Find(jogar.QuestaoId);
                  _context.Jogadas.Add( jogar );
                  _context.SaveChanges( ); //salva todas as mudanças que foram feitas
@@ -61,21 +62,39 @@ namespace API.Controllers
         .ToList( ));
 
         //--------Buscar Pergunta por ID ( para mandar apenas 1 pergunta por vez para o FRONT )----------
-        [HttpGet]// GET: api/jogar/questao
-        [Route("questao/{id}")]
+        [HttpGet]// GET: api/getbyid/questao
+        [Route("getbyid/{id}")]
         public IActionResult List ([FromRoute] int id) {
             return  Ok(_context.Questoes.ToList( )[id - 1]);
+        }
+
+
+        //------------------Deletar Respostas------------------------
+        //DELETE: /api/jogar/delete/id
+        [HttpDelete]
+        [Route("delete/{id}")]
+        public IActionResult Delete([FromRoute] int id)
+        {
+            //Buscar um objeto na tabela de jogador com base no email
+            Jogar jogar = _context.Jogadas.FirstOrDefault(
+                jogar => jogar.Id == id
+            );
+            if (jogar == null)
+            {
+                return NotFound( );
+            }
+            _context.Jogadas.Remove(jogar); //Deletar o produto encontrado
+            _context.SaveChanges( ); //Salvar
+            return Ok( );
         }
 
 
 
 
 
-
-
-        /*
         //---------------------Método que caso a resposta seja a correta, jogador.pontuação == Ponto
         //recebendo id do jogar, id do jogador,
+        /*
         [HttpPut] //PUT: api/jogar/updateJogadorPT
         [Route("updateJogadorPT/{id}/{idJogador}")]
         public IActionResult UpdatePT([FromBody]  int idJogador, int id)
@@ -89,8 +108,8 @@ namespace API.Controllers
             _context.Jogadores.Update(jogador);
             _context.SaveChanges( );
             return Ok(jogador);
-        }
-        */
+        }*/
+
 
     }
 }

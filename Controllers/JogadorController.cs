@@ -1,3 +1,4 @@
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,10 +24,17 @@ namespace API.Controllers
         [Route("create")]
         public IActionResult Create ([FromBody] Jogador jogador)
         {
-            _context.Jogadores.Add(jogador);
-            _context.SaveChanges( ); //salva todas as mudanças que foram feitas
-            return Created(" ", jogador);
+            Jogador emailEncontrado = _context.Jogadores.FirstOrDefault( j => j.Email == jogador.Email);
+            if ( emailEncontrado == null ){
+                _context.Jogadores.Add(jogador);
+                _context.SaveChanges( ); //salva todas as mudanças que foram feitas
+                return Created(" ", jogador);
+            }
+            return NotFound("Email já cadastrado!!!");
+
         }
+
+        //Produto produtoEncontrado = _context.Produtos.FirstOrDefault(p => p.NomeProduto == produto.NomeProduto);
 
         //--------------------------Lista Jogadores  :  Ranking (validar maior ponto)---------------------------
          // GET: api/jogador/list
@@ -51,12 +59,12 @@ namespace API.Controllers
         //--------------------------Deletar Jogador--------------------------
         //DELETE: /api/jogador/delete/bolinho
         [HttpDelete]
-        [Route("delete/{name}")]
-        public IActionResult Delete([FromRoute] string name)
+        [Route("delete/{email}")]
+        public IActionResult Delete([FromRoute] string email)
         {
-            //Buscar um objeto na tabela de jogador com base no nome
+            //Buscar um objeto na tabela de jogador com base no email
             Jogador jogador = _context.Jogadores.FirstOrDefault(
-                jogador => jogador.Nome == name  //procurando cliente pelo nome na lista, irá trazer o que achar primeiro
+                jogador => jogador.Email == email  //procurando cliente pelo nome na lista, irá trazer o que achar primeiro
             );
             if (jogador == null)
             {

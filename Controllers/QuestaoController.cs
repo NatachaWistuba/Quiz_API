@@ -5,6 +5,7 @@ using System.Linq;
 using API.Data;
 using API.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers
 {
@@ -26,6 +27,12 @@ namespace API.Controllers
          [Route("create")]
          public IActionResult Create ([FromBody] Questao questao)
          {
+             Categoria categoriaEncontrada = _context.Categorias.FirstOrDefault(categoria => questao.CategoriaId == categoria.Id);
+             if(categoriaEncontrada == null){
+                 return NotFound("Categoria não existe!!!");
+             }
+             questao.CategoriaId = categoriaEncontrada.Id;
+             questao.Categoria = _context.Categorias.Find(questao.CategoriaId);
              _context.Questoes.Add(questao);
              _context.SaveChanges( );
 
@@ -36,17 +43,19 @@ namespace API.Controllers
          //--------------------------Listar Questões---------------------------
         [HttpGet]// GET: api/questao/list
         [Route("list")]
-        public IActionResult List ( ) =>  Ok(_context.Questoes.ToList( ));
+        public IActionResult List ( ) =>  Ok(_context.Questoes
+        .Include( c => c.Categoria)
+        .ToList( ));
 
 
         //--------------------------Deletar Questões--------------------------
-        [HttpDelete] //DELETE: /api/questao/delete/nQuestão
-        [Route("delete/{numero}")]
-        public IActionResult Delete([FromRoute] string numero)
+        [HttpDelete] //DELETE: /api/questao/delete/id
+        [Route("delete/{id}")]
+        public IActionResult Delete([FromRoute] int id)
         {
             //Buscar um objeto na tabela de questao com base no nome
             Questao questao = _context.Questoes.FirstOrDefault(
-                questao => questao.Nquestao == numero  //procurando cliente pelo nome na lista, irá trazer o que achar primeiro
+                questao => questao.Id == id  //procurando cliente pelo nome na lista, irá trazer o que achar primeiro
             );
             if (questao == null)
             {
@@ -83,6 +92,12 @@ namespace API.Controllers
       }
 
 
+        //--------Buscar Pergunta por ID ( para mandar apenas 1 pergunta por vez para o FRONT )----------
+        [HttpGet]// GET: api/getbyid/questao
+        [Route("getbyid/{id}")]
+        public IActionResult List ([FromRoute] int id) {
+            return  Ok(_context.Questoes.ToList( )[id - 1]);
+        }
 
     }
 }
